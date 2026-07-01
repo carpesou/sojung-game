@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOJEONG GAME</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="loading" class="screen active">
+  <h1>🌿</h1>
+  <h2>SOJEONG GAME</h2>
+  <div class="bar"><div id="progress"></div></div>
+  <p>Loading...</p>
+</div>
+
+<div id="start" class="screen">
+  <h1>🌿</h1>
+  <h2>소정아</h2>
+  <p>30초만<br>빌릴게.</p>
+  <button onclick="showScreen('scene1')">시작하기</button>
+</div>
+
+<div id="scene1" class="screen">
+  <h2>사실...</h2>
+  <p>엄청 진지한 건 아니야.</p>
+  <p>그냥 한번 만들어보고 싶었어.</p>
+  <button onclick="showScreen('scene2')">다음 →</button>
+</div>
+
+<div id="scene2" class="screen">
+  <h2>미션!</h2>
+  <p>버튼을 5번 눌러줘 😊</p>
+  <button id="tapButton">0 / 5</button>
+</div>
+
+<div id="scene3" class="screen">
+  <h2>잘했어 😊</h2>
+  <p>이제 마지막 질문이야.</p>
+  <button onclick="showScreen('scene4')">가기 →</button>
+</div>
+
+<div id="scene4" class="screen">
+  <h2>🌿 마지막 질문</h2>
+  <p>나랑 다시 한번<br>만나보겠습니까?</p>
+
+  <button id="yes">만나겠습니다 😊</button>
+  <button id="no">만나지 않겠습니다</button>
+
+  <div id="message"></div>
+</div>
+
+<div id="ending" class="screen">
+  <h2>🌿</h2>
+  <p>
+    알겠어.<br><br>
+    장난은 여기까지. 😊<br><br>
+    부담 주려고 만든 건 아니야.<br><br>
+    그냥 한 번 웃었으면 좋겠어서.
+  </p>
+  <button onclick="alert('끝까지 봐줘서 고마워 😊')">끝내기</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
