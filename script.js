@@ -1,42 +1,30 @@
 const screens = document.querySelectorAll(".screen");
-const progress = document.getElementById("progress");
-const tapButton = document.getElementById("tapButton");
+const tapBtn = document.getElementById("tapBtn");
 const yes = document.getElementById("yes");
 const no = document.getElementById("no");
 const msg = document.getElementById("message");
 
-let load = 0;
 let tapCount = 0;
 let noCount = 0;
 
 function showScreen(id){
-  screens.forEach(s => s.classList.remove("active"));
+  screens.forEach(screen => screen.classList.remove("active"));
   document.getElementById(id).classList.add("active");
 }
 
-const loading = setInterval(()=>{
-  load += 5;
-  progress.style.width = load + "%";
-
-  if(load >= 100){
-    clearInterval(loading);
-    showScreen("start");
-  }
-},80);
-
-tapButton.addEventListener("click",()=>{
+tapBtn.addEventListener("click", () => {
   tapCount++;
-  tapButton.innerText = tapCount + " / 5";
+  tapBtn.innerText = tapCount + " / 5";
 
   if(tapCount >= 5){
-    tapButton.innerText = "성공 😊";
-    setTimeout(()=>{
-      showScreen("scene3");
-    },700);
+    tapBtn.innerText = "성공 😊";
+    setTimeout(() => {
+      showScreen("clear");
+    }, 700);
   }
 });
 
-function moveNoButton(){
+function moveNo(){
   const x = Math.random() * (window.innerWidth - no.offsetWidth);
   const y = Math.random() * (window.innerHeight - no.offsetHeight);
 
@@ -63,13 +51,13 @@ function moveNoButton(){
   }
 }
 
-no.addEventListener("mouseenter", moveNoButton);
-no.addEventListener("touchstart", e=>{
+no.addEventListener("mouseenter", moveNo);
+no.addEventListener("touchstart", e => {
   e.preventDefault();
-  moveNoButton();
+  moveNo();
 });
 
-yes.addEventListener("click",()=>{
+yes.addEventListener("click", () => {
   document.body.innerHTML = `
   <div style="
     height:100vh;
